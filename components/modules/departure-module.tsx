@@ -147,7 +147,7 @@ export function DepartureModule() {
                     <Label>Flight Type</Label>
                     <Select
                       value={formData.flightType}
-                      onValueChange={(value) => setFormData({ ...formData, flightType: value })}
+                      onValueChange={(value) => setFormData({ ...formData, flightType: value ?? "Passenger" })}
                     >
                       <SelectTrigger>
                         <SelectValue />

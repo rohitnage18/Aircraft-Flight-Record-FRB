@@ -109,9 +109,10 @@ export function CrewDocumentsModule() {
                     <Label>Document Type</Label>
                     <Select
                       value={formData.documentType}
-                      onValueChange={(value: "License" | "Training") =>
+                      onValueChange={(value: "License" | "Training" | null) => {
+                        if (!value) return
                         setFormData({ ...formData, documentType: value })
-                      }
+                      }}
                     >
                       <SelectTrigger>
                         <SelectValue />

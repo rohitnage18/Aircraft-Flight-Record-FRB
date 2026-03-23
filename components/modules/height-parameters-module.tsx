@@ -213,9 +213,10 @@ export function HeightParametersModule() {
                       <Label>A/P</Label>
                       <Select
                         value={formData.altimeterAP}
-                        onValueChange={(value: "Y" | "N") =>
+                        onValueChange={(value: "Y" | "N" | null) => {
+                          if (!value) return
                           setFormData({ ...formData, altimeterAP: value })
-                        }
+                        }}
                       >
                         <SelectTrigger>
                           <SelectValue />
@@ -233,9 +234,10 @@ export function HeightParametersModule() {
                   <Label>Height Keeping System Monitoring</Label>
                   <Select
                     value={formData.heightKeepingSystem}
-                    onValueChange={(value: "Normal" | "Defective") =>
+                    onValueChange={(value: "Normal" | "Defective" | null) => {
+                      if (!value) return
                       setFormData({ ...formData, heightKeepingSystem: value })
-                    }
+                    }}
                   >
                     <SelectTrigger>
                       <SelectValue />

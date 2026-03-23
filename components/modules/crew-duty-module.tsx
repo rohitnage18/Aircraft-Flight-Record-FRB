@@ -124,7 +124,10 @@ export function CrewDutyModule() {
                     <Label>Duty Status</Label>
                     <Select
                       value={formData.dutyStatus}
-                      onValueChange={(value: DutyStatus) => setFormData({ ...formData, dutyStatus: value })}
+                      onValueChange={(value: DutyStatus | null) => {
+                        if (!value) return
+                        setFormData({ ...formData, dutyStatus: value })
+                      }}
                     >
                       <SelectTrigger>
                         <SelectValue />

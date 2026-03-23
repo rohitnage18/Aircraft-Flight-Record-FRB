@@ -71,7 +71,8 @@ export function ReportsModule() {
   const [activeReport, setActiveReport] = useState<ReportType>("fuel")
   const [quickRange, setQuickRange] = useState("this-month")
 
-  const applyQuickRange = (range: string) => {
+  const applyQuickRange = (range: string | null) => {
+    if (!range) return
     setQuickRange(range)
     const now = new Date()
     let from: Date

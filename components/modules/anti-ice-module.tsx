@@ -135,9 +135,10 @@ export function AntiIceModule() {
                     <Label>Anti-Ice</Label>
                     <Select
                       value={formData.antiIce}
-                      onValueChange={(value: "ON" | "OFF") =>
+                      onValueChange={(value: "ON" | "OFF" | null) => {
+                        if (!value) return
                         setFormData({ ...formData, antiIce: value })
-                      }
+                      }}
                     >
                       <SelectTrigger>
                         <SelectValue />
@@ -152,9 +153,10 @@ export function AntiIceModule() {
                     <Label>Ground De-Icing Performed</Label>
                     <Select
                       value={formData.groundDeIcing}
-                      onValueChange={(value: "YES" | "NO") =>
+                      onValueChange={(value: "YES" | "NO" | null) => {
+                        if (!value) return
                         setFormData({ ...formData, groundDeIcing: value })
-                      }
+                      }}
                     >
                       <SelectTrigger>
                         <SelectValue />
@@ -184,7 +186,9 @@ export function AntiIceModule() {
                       <Label>Type of Fluid</Label>
                       <Select
                         value={formData.typeOfFluid}
-                        onValueChange={(value) => setFormData({ ...formData, typeOfFluid: value })}
+                        onValueChange={(value) =>
+                          setFormData({ ...formData, typeOfFluid: value ?? "" })
+                        }
                       >
                         <SelectTrigger>
                           <SelectValue placeholder="Select type" />

@@ -150,7 +150,7 @@ export function AdminMaintenanceCompliance() {
                       className={record.daysUntil <= 0 ? "bg-red-50" : record.daysUntil <= 30 ? "bg-red-50/50" : ""}
                     >
                       <TableCell className="font-mono text-sm">{record.frbSheetNo}</TableCell>
-                      <TableCell className="text-sm">{record.dateOfMaintenance}</TableCell>
+                      <TableCell className="text-sm">{record.date}</TableCell>
                       <TableCell className="text-sm">{record.nextDueDate}</TableCell>
                       <TableCell>{getStatusBadge(record.daysUntil)}</TableCell>
                     </TableRow>
@@ -185,12 +185,12 @@ export function AdminMaintenanceCompliance() {
                 </div>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Engine 1</p>
-                    <p className="text-sm">{latestHours.engine1Hours}h / {latestHours.engine1Cycles}c</p>
+                    <p className="text-xs text-muted-foreground mb-1">Before Flight</p>
+                    <p className="text-sm">{latestHours.totalBfHrs}h / {latestHours.totalBfCycles}c</p>
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground mb-1">Engine 2</p>
-                    <p className="text-sm">{latestHours.engine2Hours}h / {latestHours.engine2Cycles}c</p>
+                    <p className="text-xs text-muted-foreground mb-1">Current Flight</p>
+                    <p className="text-sm">{latestHours.totalCfHrs}h / {latestHours.totalCfCycles}c</p>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground">Last updated: {latestHours.date}</p>
@@ -218,7 +218,7 @@ export function AdminMaintenanceCompliance() {
                       <p className="font-mono text-sm truncate">{crs.crsNo}</p>
                       <p className="text-xs text-muted-foreground">{crs.date}</p>
                     </div>
-                    <Badge variant="outline" className="ml-2 shrink-0">{crs.releaseType}</Badge>
+                    <Badge variant="outline" className="ml-2 shrink-0">{crs.authNo}</Badge>
                   </div>
                 ))}
               </div>

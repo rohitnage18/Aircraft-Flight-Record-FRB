@@ -207,7 +207,10 @@ export function PreDepartureModule() {
                         <span className="text-sm font-medium flex-1">{field.label}</span>
                         <Select
                           value={(formData as Record<string, string>)[field.key]}
-                          onValueChange={(value: "YES" | "NO") => updateField(field.key, value)}
+                          onValueChange={(value: string | null) => {
+                            if (value !== "YES" && value !== "NO") return
+                            updateField(field.key, value)
+                          }}
                         >
                           <SelectTrigger className="w-24 shrink-0">
                             <SelectValue />

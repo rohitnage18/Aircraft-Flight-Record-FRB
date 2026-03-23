@@ -306,7 +306,10 @@ export function MaintenanceModule() {
                     <Label>Component</Label>
                     <Select
                       value={formData.component}
-                      onValueChange={(value: Component) => setFormData({ ...formData, component: value })}
+                      onValueChange={(value: Component | null) => {
+                        if (!value) return
+                        setFormData({ ...formData, component: value })
+                      }}
                     >
                       <SelectTrigger>
                         <SelectValue />
@@ -322,7 +325,7 @@ export function MaintenanceModule() {
                     <Label>Task No.</Label>
                     <Select
                       value={formData.taskNo}
-                      onValueChange={(value) => setFormData({ ...formData, taskNo: value })}
+                      onValueChange={(value) => setFormData({ ...formData, taskNo: value ?? "" })}
                     >
                       <SelectTrigger>
                         <SelectValue placeholder="Select task..." />

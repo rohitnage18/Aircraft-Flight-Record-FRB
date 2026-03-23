@@ -43,8 +43,21 @@ export function AdminCrewCompliance() {
     ? Math.round(((crewDocuments.length - expiredDocs) / crewDocuments.length) * 100) 
     : 100
 
-  // Get unique crew members
-  const uniqueCrew = [...new Set(crewAssignments.map((c) => c.crewName))]
+  // Get unique crew members from assignment role fields
+  const uniqueCrew = [
+    ...new Set(
+      crewAssignments
+        .flatMap((c) => [
+          c.pilot,
+          c.coPilot,
+          c.thirdCrew,
+          c.onBoardAme,
+          ...c.cabinCrew.split(","),
+        ])
+        .map((name) => name.trim())
+        .filter(Boolean)
+    ),
+  ]
 
   // FDTL violations detail
   const violations = crewDuties.filter((d) => d.isViolation)

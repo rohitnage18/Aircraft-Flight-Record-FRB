@@ -170,9 +170,10 @@ export function DefectsModule() {
                     <Label>Entered By Type</Label>
                     <Select
                       value={formData.enteredByType}
-                      onValueChange={(value: "Pilot" | "Certifying Staff") =>
+                      onValueChange={(value: "Pilot" | "Certifying Staff" | null) => {
+                        if (!value) return
                         setFormData({ ...formData, enteredByType: value })
-                      }
+                      }}
                     >
                       <SelectTrigger>
                         <SelectValue />

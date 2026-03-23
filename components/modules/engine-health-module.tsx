@@ -137,7 +137,10 @@ export function EngineHealthModule() {
                     <Label>Engine</Label>
                     <Select
                       value={formData.engine}
-                      onValueChange={(value: "LH" | "RH") => setFormData({ ...formData, engine: value })}
+                      onValueChange={(value: "LH" | "RH" | null) => {
+                        if (!value) return
+                        setFormData({ ...formData, engine: value })
+                      }}
                     >
                       <SelectTrigger>
                         <SelectValue />

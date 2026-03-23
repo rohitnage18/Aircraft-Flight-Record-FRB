@@ -168,7 +168,7 @@ export function AdminDefectsWorkOrders() {
                     {openWO.map((wo) => (
                       <TableRow key={wo.id} className="bg-red-50/50">
                         <TableCell className="font-mono">{wo.workOrderNo}</TableCell>
-                        <TableCell>{wo.date}</TableCell>
+                        <TableCell>{wo.createdDate}</TableCell>
                         <TableCell className="max-w-[200px]">
                           <p className="truncate">{wo.defectDescription}</p>
                         </TableCell>
@@ -284,7 +284,7 @@ export function AdminDefectsWorkOrders() {
                     >
                       <TableCell className="font-mono">{wo.workOrderNo}</TableCell>
                       <TableCell className="font-mono text-sm">{wo.frbSheetNo}</TableCell>
-                      <TableCell>{wo.date}</TableCell>
+                      <TableCell>{wo.createdDate}</TableCell>
                       <TableCell className="max-w-[200px]">
                         <p className="truncate">{wo.defectDescription}</p>
                       </TableCell>

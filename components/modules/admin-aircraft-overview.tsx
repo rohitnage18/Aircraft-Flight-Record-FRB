@@ -185,11 +185,11 @@ export function AdminAircraftOverview() {
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
                     <p className="text-muted-foreground">Engine 1</p>
-                    <p className="font-semibold">{latestOil.engine1OilAdded} qts added</p>
+                    <p className="font-semibold">{latestOil.engine1Uplifted} qts added</p>
                   </div>
                   <div>
                     <p className="text-muted-foreground">Engine 2</p>
-                    <p className="font-semibold">{latestOil.engine2OilAdded} qts added</p>
+                    <p className="font-semibold">{latestOil.engine2Uplifted} qts added</p>
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground">Last updated: {latestOil.date}</p>
